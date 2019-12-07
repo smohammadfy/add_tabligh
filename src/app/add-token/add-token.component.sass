@@ -1,0 +1,20 @@
+$break-small: 320px
+$break-large: 1200px
+
+.fullwidth
+  width: 100%
+
+.responsivecard
+  position: relative
+  padding: 5vh 5vw
+  margin: 10vh auto
+  @media screen and (max-width: $break-small)
+    width: 80vw
+    float: none
+  @media screen and (min-width: $break-large)
+    width: 30vw
+    float: none
+.titlecard
+  font-size: larger
+.button
+  margin: auto

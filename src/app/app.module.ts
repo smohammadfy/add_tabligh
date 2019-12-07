@@ -7,11 +7,13 @@ import { AddUserComponent } from './add-user/add-user.component';
 import {MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatTableModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { AddTokenComponent } from './add-token/add-token.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddUserComponent
+    AddUserComponent,
+    AddTokenComponent
   ],
   imports: [
     BrowserModule,
