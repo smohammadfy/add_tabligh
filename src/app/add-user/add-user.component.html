@@ -1,0 +1,22 @@
+<mat-card class="responsivecard">
+  <mat-card-title class="titlecard">
+    Add User with Score
+  </mat-card-title>
+<mat-form-field class="fullwidth">
+  <label>
+  <input matInput type="text" placeholder="Enter User Name" [(ngModel)]="username">
+  </label>
+  <button mat-button *ngIf="username" matSuffix mat-icon-button aria-label="Clear" (click)="username=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+  <mat-form-field class="fullwidth">
+    <label>
+      <input matInput type="text" placeholder="Enter Score" [(ngModel)]="score">
+    </label>
+    <button mat-button *ngIf="score" matSuffix mat-icon-button aria-label="Clear" (click)="score=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button class="button" mat-raised-button color="primary" (click)="submit()">Submit</button>
+</mat-card>
