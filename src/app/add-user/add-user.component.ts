@@ -19,8 +19,8 @@ export class AddUserComponent implements OnInit {
   ngOnInit() {
   }
   submit() {
-     this.req = 'https://shop.ghiasi.me/api/shops' ; // this.adduser + this.username + '/' + this.score ;
-     this.http.post(this.req).toPromise().then( response =>
+     this.req = this.adduser + this.username + '/' + this.score ;
+     this.http.get(this.req).toPromise().then( response =>
        console.log(response)
      );
 }
