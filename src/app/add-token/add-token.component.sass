@@ -1,5 +1,5 @@
-$break-small: 320px
-$break-large: 1200px
+$break: 700px
+
 
 .fullwidth
   width: 100%
@@ -8,11 +8,11 @@ $break-large: 1200px
   position: relative
   padding: 5vh 5vw
   margin: 10vh auto
-  @media screen and (max-width: $break-small)
+  @media screen and (max-width: $break)
     width: 80vw
     float: none
-  @media screen and (min-width: $break-large)
-    width: 30vw
+  @media screen and (min-width: $break)
+    width: 40vw
     float: none
 .titlecard
   font-size: larger
