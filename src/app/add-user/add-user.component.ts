@@ -11,8 +11,9 @@ import { HttpClient } from '@angular/common/http';
 export class AddUserComponent implements OnInit {
   username = '';
   score = '';
-  adduser = 'http://sepantabiotserver.ir:4300/add_user/';
+  adduser = 'http://192.168.1.5:4300/add_user/';
   req = '';
+
   constructor(private http: HttpClient) {
   }
 

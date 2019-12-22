@@ -1,6 +1,7 @@
+
 <div class="example-container example-sidenav-container">
+    <img class="logo" src="../assets/firebase.png" alt="Firebase icon"/>
   <mat-toolbar color="primary" class="example-toolbar">
-    <img class="logo" src="../favicon.ico" alt="Angular icon"/>
     <div class="mycontainer">
       <div class="bolder">
         Token_User System
@@ -16,8 +17,8 @@
   <mat-sidenav-container class="example-sidenav-container">
     <mat-sidenav #snav>
       <mat-nav-list class="mynavlist">
-        <a mat-list-item routerLink="adduser" (click)="snav.toggle(); adduser=true; addtoken = false; ">Add User</a>
-        <a mat-list-item routerLink="addtoken" (click)="snav.toggle(); addtoken=true; adduser = false; ">Set Token</a>
+        <a mat-list-item routerLink="adduser" (click)="snav.toggle(); adduser=true; addtoken = false;  ">Add User</a>
+        <a mat-list-item routerLink="addtoken" (click)="snav.toggle(); addtoken=true; adduser = false;  ">Set Token</a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -25,6 +26,9 @@
       <app-add-token *ngIf="addtoken === true && adduser === false"></app-add-token>
     </mat-sidenav-content>
   </mat-sidenav-container>
+  <button mat-raised-button color="primary" (click)="load()">Load</button>
+
+  <pre *ngIf="data">{{data | async | json}}</pre>
 </div>
 
 

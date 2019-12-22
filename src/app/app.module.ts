@@ -9,20 +9,25 @@ import {
   MatCardModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule, MatListModule,
+  MatInputModule, MatListModule, MatProgressBarModule, MatProgressSpinnerModule,
   MatSidenavModule,
   MatTableModule, MatToolbarModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { AddTokenComponent } from './add-token/add-token.component';
-
+import { LoadingComponent } from './loading/loading.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { LoadingInterceptor } from './loading.interceptor';
+import { LoadingService } from './loading.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddUserComponent,
     AddTokenComponent,
+    LoadingComponent,
 
   ],
   imports: [
@@ -40,9 +45,20 @@ import { AddTokenComponent } from './add-token/add-token.component';
     HttpClientModule,
     MatSidenavModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    OverlayModule,
   ],
-  providers: [],
+  entryComponents: [ LoadingComponent ],
+  providers: [
+    LoadingService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
