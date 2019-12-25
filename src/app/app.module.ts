@@ -23,6 +23,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { LoadingInterceptor } from './loading.interceptor';
 import { LoadingService } from './loading.service';
 import {DialogComponent} from './dialog';
+import { FailedDiagramComponent } from './failed-diagram/failed-diagram.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {DialogComponent} from './dialog';
     AddUserComponent,
     AddTokenComponent,
     LoadingComponent,
-    DialogComponent
+    DialogComponent,
+    FailedDiagramComponent
 
   ],
   imports: [
