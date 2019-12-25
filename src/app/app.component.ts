@@ -14,6 +14,7 @@ export class AppComponent {
   mobileQuery: any;
   adduser = true;
   addtoken = false;
+  failed = false;
   value = 0;
   data: Observable<any>;
 }

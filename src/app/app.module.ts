@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddUserComponent } from './add-user/add-user.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {
   MatButtonModule,
   MatCardModule, MatDialogModule,
@@ -24,6 +25,8 @@ import { LoadingInterceptor } from './loading.interceptor';
 import { LoadingService } from './loading.service';
 import {DialogComponent} from './dialog';
 import { FailedDiagramComponent } from './failed-diagram/failed-diagram.component';
+
+
 
 
 @NgModule({
@@ -56,7 +59,8 @@ import { FailedDiagramComponent } from './failed-diagram/failed-diagram.componen
     MatProgressSpinnerModule,
     OverlayModule,
     MatDialogModule,
-    MatCommonModule
+    MatCommonModule,
+    MDBBootstrapModule
   ],
   entryComponents: [ LoadingComponent, DialogComponent ],
   providers: [

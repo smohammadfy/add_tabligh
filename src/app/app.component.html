@@ -17,13 +17,15 @@
   <mat-sidenav-container class="example-sidenav-container">
     <mat-sidenav #snav>
       <mat-nav-list class="mynavlist">
-        <a mat-list-item routerLink="adduser" (click)="snav.toggle(); adduser=true; addtoken = false;  ">Add User</a>
-        <a mat-list-item routerLink="addtoken" (click)="snav.toggle(); addtoken=true; adduser = false;  ">Set Token</a>
+        <a mat-list-item routerLink="adduser" (click)="snav.toggle(); adduser=true; addtoken = false; failed =false; ">Add User</a>
+        <a mat-list-item routerLink="addtoken" (click)="snav.toggle(); addtoken=true; adduser = false; failed =false; ">Set Token</a>
+        <a mat-list-item routerLink="addtoken" (click)="snav.toggle(); addtoken=false; adduser = false; failed =true; ">Failed Diagram</a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-    <app-add-user *ngIf="adduser === true && addtoken === false"></app-add-user>
-      <app-add-token *ngIf="addtoken === true && adduser === false"></app-add-token>
+    <app-add-user *ngIf="adduser === true && addtoken === false && failed===false "></app-add-user>
+      <app-add-token *ngIf="addtoken === true && adduser === false && failed===false"></app-add-token>
+      <app-failed-diagram *ngIf="addtoken === false && adduser === false && failed===true"></app-failed-diagram>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

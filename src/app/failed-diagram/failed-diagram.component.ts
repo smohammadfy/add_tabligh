@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-failed-diagram',
   templateUrl: './failed-diagram.component.html',
   styleUrls: ['./failed-diagram.component.sass']
 })
-export class FailedDiagramComponent implements OnInit {
+export class FailedDiagramComponent {
 
   constructor() {
   }
@@ -40,10 +40,5 @@ export class FailedDiagramComponent implements OnInit {
 
   public chartHovered(e: any): void {
   }
-
-
-  ngOnInit();
-{
-}
 
 }
