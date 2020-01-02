@@ -96,14 +96,15 @@ export class AddUserComponent implements OnInit {
   bought: '';
   long: '';
   lat: '';
+  scost: '';
   cost: '';
   features: '';
   payway: '';
+  address: '';
   piclink: '';
   categories: '';
   day: '';
   houre: '';
-
   constructor(private http: HttpClient) {
     this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
       startWith(null),
@@ -157,6 +158,9 @@ export class AddUserComponent implements OnInit {
   submit() {
     window.alert('test');
     this.timedelta = ( Number(this.day) * 24) + this.houre;
+    this.fruits.map(item => {
+      this.categories += item + ',';
+    });
     // this.req = this.adduser + this.username + '/' + this.score;
     // this.http.get(this.req).toPromise().then(response =>
     //   console.log(response)

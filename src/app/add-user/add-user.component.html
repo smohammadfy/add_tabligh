@@ -30,9 +30,26 @@
   </mat-form-field>
   <mat-form-field class="fullwidth">
     <label>
+      <input matInput  placeholder="ویژگی ها" [(ngModel)]="features">
+    </label>
+    <button mat-button *ngIf="features" matSuffix mat-icon-button aria-label="Clear" (click)="features=''">
+      <mat-icon class="icon-font">close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="fullwidth">
+    <label>
       <input matInput type="text" placeholder="قیمت قدیمی را وارد کنید" [(ngModel)]="oldcost">
     </label>
     <button mat-button *ngIf="oldcost" matSuffix mat-icon-button aria-label="Clear" (click)="oldcost  =''">
+      <mat-icon class="icon-font">close</mat-icon>
+    </button>
+    <mat-hint align="start">قیمت را به هزار تومان وارد کنید ( مثلا 10 برابر ده هزار تومان)</mat-hint>
+  </mat-form-field>
+  <mat-form-field class="fullwidth">
+    <label>
+      <input matInput type="text" value="0" placeholder="قیمت با اسکوین را وارد کنید" [(ngModel)]="scost">
+    </label>
+    <button mat-button *ngIf="scost" matSuffix mat-icon-button aria-label="Clear" (click)="scost  =''">
       <mat-icon class="icon-font">close</mat-icon>
     </button>
   </mat-form-field>
@@ -70,6 +87,14 @@
   </mat-form-field>
   <mat-form-field class="fullwidth">
     <label>
+      <input matInput type="text" placeholder="برچسب آدرس را وارد کنید" [(ngModel)]="tag">
+    </label>
+    <button mat-button *ngIf="tag" matSuffix mat-icon-button aria-label="Clear" (click)="tag  =''">
+      <mat-icon class="icon-font">close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="fullwidth">
+    <label>
       <input matInput type="text" placeholder="تعداد خرید را وارد کنید" [(ngModel)]="bought">
     </label>
     <button mat-button *ngIf="bought" matSuffix mat-icon-button aria-label="Clear" (click)="bought  =''">
@@ -102,7 +127,7 @@
   </mat-form-field>
   <mat-form-field class="fullwidth">
     <label>
-      <input matInput type="text" placeholder="روش پرداخت را وارد کنید" [(ngModel)]="payway">
+      <input matInput type="text" placeholder="َشرایط استفاده " [(ngModel)]="payway">
     </label>
     <button mat-button *ngIf="payway" matSuffix mat-icon-button aria-label="Clear" (click)="cost  =''">
       <mat-icon class="icon-font">close</mat-icon>
