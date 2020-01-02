@@ -1,34 +1,10 @@
-
 <div class="example-container example-sidenav-container">
   <mat-toolbar color="primary" class="example-toolbar">
     <img class="logo" src="../assets/firebase.png" alt="Firebase icon"/>
-    <div class="mycontainer">
-      <div class="bolder">
-        Token_User System
-      </div>
-      <div class="bold">
-        best firebase system
-      </div>
-    </div>
-    <button mat-icon-button (click)="snav.toggle()">
-      <mat-icon style="color: lightyellow">menu</mat-icon></button>
   </mat-toolbar>
-
-  <mat-sidenav-container class="example-sidenav-container">
-    <mat-sidenav #snav>
-      <mat-nav-list class="mynavlist">
-        <a mat-list-item routerLink="adduser" (click)="snav.toggle(); adduser=true; addtoken = false; failed =false; ">Add User</a>
-        <a mat-list-item routerLink="addtoken" (click)="snav.toggle(); addtoken=true; adduser = false; failed =false; ">Set Token</a>
-        <a mat-list-item routerLink="addtoken" (click)="snav.toggle(); addtoken=false; adduser = false; failed =true; ">Failed Diagram</a>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-    <app-add-user *ngIf="adduser === true && addtoken === false && failed===false "></app-add-user>
-      <app-add-token *ngIf="addtoken === true && adduser === false && failed===false"></app-add-token>
-      <app-failed-diagram *ngIf="addtoken === false && adduser === false && failed===true"></app-failed-diagram>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
 </div>
 
+  <app-add-user *ngIf="adduser === true && addtoken === false && failed===false "></app-add-user>
 
-<router-outlet></router-outlet>
+
+  <router-outlet></router-outlet>

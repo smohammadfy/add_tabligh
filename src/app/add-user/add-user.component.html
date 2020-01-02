@@ -1,22 +1,136 @@
-<mat-card class="responsivecard">
-  <mat-card-title class="titlecard">
-    Add User with Score
+<mat-card class="responsivecard" dir="rtl">
+  <mat-card-title class="titlecard" dir="rtl">
+    اضافه کردن تبلیغ
   </mat-card-title>
 <mat-form-field class="fullwidth">
   <label>
-  <input matInput type="text" placeholder="Enter Username" [(ngModel)]="username">
+  <input matInput type="text" placeholder="تیتر راوارد کنید" [(ngModel)]="title">
   </label>
-  <button mat-button *ngIf="username" matSuffix mat-icon-button aria-label="Clear" (click)="username=''">
-    <mat-icon>close</mat-icon>
+  <button mat-button *ngIf="title" matSuffix mat-icon-button aria-label="Clear" (click)="title=''">
+    <mat-icon class="icon-font">close</mat-icon>
+  </button>
+</mat-form-field>
+  <mat-form-field class="fullwidth">
+  <label>
+    <textarea  matInput type="text" placeholder="توضیحات را وارد کنید" [(ngModel)]="description"></textarea>
+  </label>
+  <button mat-button *ngIf="description" matSuffix mat-icon-button aria-label="Clear" (click)="description=''">
+    <mat-icon class="icon-font">close</mat-icon>
   </button>
 </mat-form-field>
   <mat-form-field class="fullwidth">
     <label>
-      <input matInput type="text" placeholder="Enter Score" [(ngModel)]="score">
+      <input matInput type="text" placeholder="قیمت قدیمی را وارد کنید" [(ngModel)]="oldcost">
     </label>
-    <button mat-button *ngIf="score" matSuffix mat-icon-button aria-label="Clear" (click)="score=''">
-      <mat-icon>close</mat-icon>
+    <button mat-button *ngIf="oldcost" matSuffix mat-icon-button aria-label="Clear" (click)="oldcost  =''">
+      <mat-icon class="icon-font">close</mat-icon>
     </button>
   </mat-form-field>
-  <button class="button" mat-raised-button color="primary" (click)="submit()">Submit</button>
+  <mat-form-field class="fullwidth">
+    <label>
+      <input matInput type="text" placeholder="تخفیف را وارد کنید" [(ngModel)]="off">
+    </label>
+    <button mat-button *ngIf="off" matSuffix mat-icon-button aria-label="Clear" (click)="off  =''">
+      <mat-icon class="icon-font">close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="fullwidth">
+    <label>
+      <input matInput type="text" placeholder="لینک را وارد کنید" [(ngModel)]="link">
+    </label>
+    <button mat-button *ngIf="link" matSuffix mat-icon-button aria-label="Clear" (click)="link  =''">
+      <mat-icon class="icon-font">close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="fullwidth">
+    <label>
+      <input matInput type="text" placeholder="امتیاز را وارد کنید" [(ngModel)]="rate">
+    </label>
+    <button mat-button *ngIf="rate" matSuffix mat-icon-button aria-label="Clear" (click)="rate  =''">
+      <mat-icon class="icon-font">close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="fullwidth">
+    <label>
+      <input matInput type="text" placeholder="تعداد کاربران امتیاز داده  را وارد کنید" [(ngModel)]="ratecount">
+    </label>
+    <button mat-button *ngIf="ratecount" matSuffix mat-icon-button aria-label="Clear" (click)="ratecount  =''">
+      <mat-icon class="icon-font">close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="fullwidth">
+    <label>
+      <input matInput type="text" placeholder="تعداد خرید را وارد کنید" [(ngModel)]="bought">
+    </label>
+    <button mat-button *ngIf="bought" matSuffix mat-icon-button aria-label="Clear" (click)="bought  =''">
+      <mat-icon class="icon-font">close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="fullwidth">
+    <label>
+      <input matInput type="text" placeholder="طول جغرافیایی" [(ngModel)]="long">
+    </label>
+    <button mat-button *ngIf="long" matSuffix mat-icon-button aria-label="Clear" (click)="long  =''">
+      <mat-icon class="icon-font">close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="fullwidth">
+    <label>
+      <input matInput type="text" placeholder="عرض  جغرافیایی" [(ngModel)]="lat">
+    </label>
+    <button mat-button *ngIf="lat" matSuffix mat-icon-button aria-label="Clear" (click)="lat  =''">
+      <mat-icon class="icon-font">close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="fullwidth">
+    <label>
+      <input  matInput type="text" placeholder="قیمت را وارد کنید" [(ngModel)]="cost">
+    </label>
+    <button mat-button *ngIf="cost" matSuffix mat-icon-button aria-label="Clear" (click)="cost  =''">
+      <mat-icon class="icon-font">close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="fullwidth">
+    <label>
+      <input matInput type="text" placeholder="روش پرداخت را وارد کنید" [(ngModel)]="payway">
+    </label>
+    <button mat-button *ngIf="payway" matSuffix mat-icon-button aria-label="Clear" (click)="cost  =''">
+      <mat-icon class="icon-font">close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="fullwidth">
+    <label>
+      <input matInput type="text" placeholder="لینک تصاویر را وارد کنید ( اولین تصویر ، تصویر اصلی خواهد بود) " [(ngModel)]="piclink">
+    </label>
+    <button mat-button *ngIf="piclink" matSuffix mat-icon-button aria-label="Clear" (click)="cost  =''">
+      <mat-icon class="icon-font">close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="fullwidth">
+    <mat-chip-list #chipList aria-label="Fruit selection">
+      <mat-chip
+        *ngFor="let fruit of fruits"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(fruit)">
+        {{fruit}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="افزودن دسته بندی"
+        #fruitInput
+        [formControl]="fruitCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+        {{fruit}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button class="button" mat-raised-button color="primary" (click)="submit()">افزودن</button>
 </mat-card>

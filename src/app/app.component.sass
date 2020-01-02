@@ -1,7 +1,7 @@
 
 .mycontainer
   right: 6vh
-  position: fixed
+  position: relative
   color: lightyellow
   font-size: small
   padding: 10px
@@ -15,13 +15,14 @@
 
 .logo
   direction: ltr
-  position: fixed
+  position: relative
   padding: auto
   width: 6vh
   height: 6vh
   right: 0
 
 .menu
+  font-family: Material,sans-serif
   position: relative
   padding: auto
   width: 6vh
@@ -29,9 +30,10 @@
   font-size: smaller
 
 .example-container
+
   display: flex
   flex-direction: column
-  position: absolute
+  position: relative
   top: 0
   bottom: 0
   left: 0
@@ -44,6 +46,9 @@
      causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
   flex: 1
 
+@font-face
+  font-family: ir
+  src: url(../assets/ir.ttf)
 
 
 

@@ -25,8 +25,8 @@ import { LoadingInterceptor } from './loading.interceptor';
 import { LoadingService } from './loading.service';
 import {DialogComponent} from './dialog';
 import { FailedDiagramComponent } from './failed-diagram/failed-diagram.component';
-
-
+import {MatChipsModule} from '@angular/material/chips';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -60,7 +60,9 @@ import { FailedDiagramComponent } from './failed-diagram/failed-diagram.componen
     OverlayModule,
     MatDialogModule,
     MatCommonModule,
-    MDBBootstrapModule
+    MDBBootstrapModule,
+    MatChipsModule,
+    MatAutocompleteModule,
   ],
   entryComponents: [ LoadingComponent, DialogComponent ],
   providers: [
