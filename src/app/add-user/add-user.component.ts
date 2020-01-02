@@ -101,6 +101,8 @@ export class AddUserComponent implements OnInit {
   payway: '';
   piclink: '';
   categories: '';
+  day: '';
+  houre: '';
 
   constructor(private http: HttpClient) {
     this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
@@ -110,6 +112,7 @@ export class AddUserComponent implements OnInit {
 
   ngOnInit() {
   }
+
   add(event: MatChipInputEvent): void {
     // Add fruit only when MatAutocomplete is not open
     // To make sure this does not conflict with OptionSelected Event
@@ -150,6 +153,7 @@ export class AddUserComponent implements OnInit {
 
     return this.allFruits.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
   }
+
   submit() {
     window.alert('test');
     // this.req = this.adduser + this.username + '/' + this.score;

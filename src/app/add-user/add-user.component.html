@@ -132,5 +132,27 @@
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
+
+    <table>
+      <td><mat-form-field class="fullwidth">
+        <label>
+          <input matInput type="text" placeholder="تعداد روز " [(ngModel)]="day">
+        </label>
+        <button mat-button *ngIf="day" matSuffix mat-icon-button aria-label="Clear" (click)="day  =''">
+          <mat-icon class="icon-font">close</mat-icon>
+        </button>
+      </mat-form-field>
+      </td>
+      <td><mat-form-field class="fullwidth">
+        <label>
+          <input matInput type="text" placeholder="ساعت " [(ngModel)]="houre">
+        </label>
+        <button mat-button *ngIf="houre" matSuffix mat-icon-button aria-label="Clear" (click)="houre  =''">
+          <mat-icon class="icon-font">close</mat-icon>
+        </button>
+      </mat-form-field>
+      </td>
+    </table>
+
   <button class="button" mat-raised-button color="primary" (click)="submit()">افزودن</button>
 </mat-card>
