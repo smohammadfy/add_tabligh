@@ -156,6 +156,7 @@ export class AddUserComponent implements OnInit {
 
   submit() {
     window.alert('test');
+    this.timedelta = ( Number(this.day) * 24) + this.houre;
     // this.req = this.adduser + this.username + '/' + this.score;
     // this.http.get(this.req).toPromise().then(response =>
     //   console.log(response)
