@@ -7,7 +7,8 @@ import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/a
 import {MatChipInputEvent} from '@angular/material/chips';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-
+import {DialogComponent} from '../dialog';
+import {MatDialog} from '@angular/material';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -15,8 +16,10 @@ import {map, startWith} from 'rxjs/operators';
 })
 
 export class AddUserComponent implements OnInit {
-  visible = true;
   selectable = true;
+  res: string;
+  responseokey = 'درخواست شما با موفقیت ثبت شد';
+  responsefailed = 'درخواست شما ناموفق بود';
   removable = true;
   addOnBlur = true;
   separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -102,10 +105,11 @@ export class AddUserComponent implements OnInit {
   payway: '';
   address: '';
   piclink: '';
-  categories: '';
+  categories: string;
   day: '';
   houre: '';
-  constructor(private http: HttpClient) {
+
+  constructor(private http: HttpClient , public dialog: MatDialog) {
     this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
       startWith(null),
       map((fruit: string | null) => fruit ? this._filter(fruit) : this.allFruits.slice()));
@@ -142,7 +146,6 @@ export class AddUserComponent implements OnInit {
       this.fruits.splice(index, 1);
     }
   }
-
   selected(event: MatAutocompleteSelectedEvent): void {
     this.fruits.push(event.option.viewValue);
     this.fruitInput.nativeElement.value = '';
@@ -154,15 +157,51 @@ export class AddUserComponent implements OnInit {
 
     return this.allFruits.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
   }
-
   submit() {
-    window.alert('test');
-    this.timedelta = ( Number(this.day) * 24) + this.houre;
-    this.fruits.map(item => {
-      this.categories += item + ',';
-    });
+    this.timedelta = (Number(this.day) * 24) + this.houre;
+    // this.fruits.map(item => {
+    //   this.categories += item + ',';
+    // });
+    for (const fruit of this.fruits) {
+      this.categories += (this.allFruits.indexOf(fruit) + 1) + ',';
+    }
+    this.categories = this.categories.slice(0, -1);
+    this.categories = this.categories.replace('undefined', '');
+    console.log(this.categories);
+    this.http.post('http://192.168.1.14:8000/requests/submit_new_ad', JSON.stringify({title: this.title , description: this.description ,
+    shortdescription : this.shortdescription, timedelta : + this.timedelta ,
+    oldcost: +this.oldcost,
+    off: +this.off,
+    link: this.link,
+    rate: +this.rate,
+    ratecount: +this.ratecount,
+    bought: +this.bought,
+    long: +this.long,
+    lat: +this.lat,
+    scost: +this.scost,
+    cost: +this.cost,
+    features: this.features,
+    payway: this.payway,
+    address: this.address,
+    piclink: this.piclink,
+    categories: this.categories,
+    })).subscribe(response => console.log(response));
     // this.req = this.adduser + this.username + '/' + this.score;
     // this.http.get(this.req).toPromise().then(response =>
     //   console.log(response)
+  }
+  responsehandler(response) {
+    if (response === 1) {
+       this.res = this.responseokey;
+    } else {
+      this.res = this.responsefailed;
+    }
+    this.openDialog(this.res);
+  }
+  openDialog(response): void {
+    this.dialog.open(DialogComponent, {
+      width: '60vw',
+      data: response
+    });
   }
 }
