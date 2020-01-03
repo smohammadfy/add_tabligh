@@ -5,7 +5,7 @@ import {ElementRef, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
-import {observable, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {DialogComponent} from '../dialog';
 import {MatDialog} from '@angular/material';
@@ -108,11 +108,11 @@ export class AddUserComponent implements OnInit {
   categories: string;
   day: '';
   houre: '';
-
   constructor(private http: HttpClient , public dialog: MatDialog) {
     this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
       startWith(null),
       map((fruit: string | null) => fruit ? this._filter(fruit) : this.allFruits.slice()));
+    this.res = this.responsefailed;
   }
 
   ngOnInit() {
@@ -167,7 +167,6 @@ export class AddUserComponent implements OnInit {
     }
     this.categories = this.categories.slice(0, -1);
     this.categories = this.categories.replace('undefined', '');
-    console.log(this.categories);
     this.http.post('http://192.168.1.14:8000/requests/submit_new_ad', JSON.stringify({title: this.title , description: this.description ,
     shortdescription : this.shortdescription, timedelta : + this.timedelta ,
     oldcost: +this.oldcost,
@@ -185,17 +184,15 @@ export class AddUserComponent implements OnInit {
     address: this.address,
     piclink: this.piclink,
     categories: this.categories,
-    })).subscribe(response => this.responsehandler(response));
+    })).subscribe(response =>
+      this.responsehandler(response), error1 => this.openDialog(this.res));
     // this.req = this.adduser + this.username + '/' + this.score;
     // this.http.get(this.req).toPromise().then(response =>
     //   console.log(response)
   }
-  responsehandler(response) {
-    console.log(response);
+  responsehandler(response: any) {
     if (response === 1) {
-       this.res = this.responseokey;
-    } else {
-      this.res = this.responsefailed;
+      this.res = this.responseokey;
     }
     this.openDialog(this.res);
   }

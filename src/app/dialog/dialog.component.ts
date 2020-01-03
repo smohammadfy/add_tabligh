@@ -13,6 +13,7 @@ export class DialogComponent {
 
   Click(): void {
     this.dialogRef.close();
+    location.reload();
   }
 
 }
