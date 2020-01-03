@@ -5,7 +5,7 @@ import {ElementRef, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
-import {Observable} from 'rxjs';
+import {observable, Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {DialogComponent} from '../dialog';
 import {MatDialog} from '@angular/material';
@@ -185,12 +185,13 @@ export class AddUserComponent implements OnInit {
     address: this.address,
     piclink: this.piclink,
     categories: this.categories,
-    })).subscribe(response => console.log(response));
+    })).subscribe(response => this.responsehandler(response));
     // this.req = this.adduser + this.username + '/' + this.score;
     // this.http.get(this.req).toPromise().then(response =>
     //   console.log(response)
   }
   responsehandler(response) {
+    console.log(response);
     if (response === 1) {
        this.res = this.responseokey;
     } else {
