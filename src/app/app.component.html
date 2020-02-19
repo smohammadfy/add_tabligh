@@ -3,8 +3,28 @@
     <img class="logo" src="../assets/AU.png" alt="Scotech"/>
   </mat-toolbar>
 </div>
+<mat-card class="responsivecard" dir="rtl" xmlns="http://www.w3.org/1999/html" *ngIf="adduser === false && addtoken === true && failed===false ">
+  <mat-card-title class="titlecard">
+    خوش آمدید. اطلاعات خود را وارد کنید
+  </mat-card-title>
+  <mat-form-field class="fullwidth">
+    <label>
+      <input matInput type="text" placeholder="نام کاربری" [(ngModel)]="username">
+    </label>
+    <button mat-button *ngIf="username" matSuffix mat-icon-button aria-label="Clear" (click)="username=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="fullwidth">
+    <label>
+      <input matInput type="text" placeholder="رمز عبور" [(ngModel)]="token">
+    </label>
+    <button mat-button *ngIf="token" matSuffix mat-icon-button aria-label="Clear" (click)="token=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button class="button" mat-raised-button color="primary" (click)="submit()">ورود</button>
+</mat-card>
 
-  <app-add-user *ngIf="adduser === true && addtoken === false && failed===false "></app-add-user>
-
-
+<app-add-user *ngIf="adduser === true && addtoken === false && failed===false "></app-add-user>
   <router-outlet></router-outlet>

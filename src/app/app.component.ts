@@ -11,10 +11,19 @@ import 'rxjs/add/operator/delay';
 })
 export class AppComponent {
   title = 'project';
+  username = '';
+  token = '';
   mobileQuery: any;
-  adduser = true;
-  addtoken = false;
+  adduser = false;
+  addtoken = true;
   failed = false;
   value = 0;
   data: Observable<any>;
+
+  submit() {
+    this.adduser = true;
+    this.addtoken = false;
+    this.failed = false;
+  }
 }
+
