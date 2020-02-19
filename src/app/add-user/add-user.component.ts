@@ -9,6 +9,7 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {DialogComponent} from '../dialog';
 import {MatDialog} from '@angular/material';
+
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -16,6 +17,9 @@ import {MatDialog} from '@angular/material';
 })
 
 export class AddUserComponent implements OnInit {
+  center: Array<number> = [51.4054, 35.7010 ];
+  // tslint:disable-next-line:max-line-length
+  apiKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY0NWMxZjM5NDYyOWU4MGI4N2Q5ZWRhZDQ3MGI5ZWU5ZTEzYmVkNjJiOTJkZmJkY2Q0NDI2ZjM4ZTYzODVhZTVjMWQxMTFmZDUzMjE1OTU4In0.eyJhdWQiOiI3OTk5IiwianRpIjoiZjQ1YzFmMzk0NjI5ZTgwYjg3ZDllZGFkNDcwYjllZTllMTNiZWQ2MmI5MmRmYmRjZDQ0MjZmMzhlNjM4NWFlNWMxZDExMWZkNTMyMTU5NTgiLCJpYXQiOjE1ODIxMDgzOTMsIm5iZiI6MTU4MjEwODM5MywiZXhwIjoxNTg0NTI3NTkzLCJzdWIiOiIiLCJzY29wZXMiOlsiYmFzaWMiXX0.FCc9v2olhiy4xTUwJ9YDe5UiOT1thElNoGtwTRXz1ratYsvyfJDPuY7MWXbMRGnvZNFosXvkpOt-TIp816vv3wiU9IjLNzVC0VnxuUMr8TyoJa5ATYL-Z2deLMiRpz_IfgmUpv653j-Cx9Wtg4JcQoI5m2lIL_z7yy7rIM-Ib-pG1tvqroQuoylsJbOtsF-Bu2gah26430HMHl-toZ-2VdKdYzNqo8YymBV_Dq-UtwceryVJ7zSYEzeJBR-EAWEBFVnCeSi3wAWW2Y2MU7x7x1tgAq7NNJAx9dLj0EJeaIU-zpX5XqhWqpdoHSiOd-DN_RqlPRUVrAbwCmmlBBIkeQ';
   selectable = true;
   res: string;
   responseokey = 'درخواست شما با موفقیت ثبت شد';
@@ -157,8 +161,11 @@ export class AddUserComponent implements OnInit {
 
     return this.allFruits.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
   }
+  find() {
+    this.center = [Number(this.lat), Number(this.long)];
+  }
   submit() {
-    this.timedelta = (Number(this.day) * 24) + this.houre;
+    this.timedelta = String((Number(this.day) * 24) + Number(this.houre));
     // this.fruits.map(item => {
     //   this.categories += item + ',';
     // });
@@ -167,7 +174,7 @@ export class AddUserComponent implements OnInit {
     }
     this.categories = this.categories.slice(0, -1);
     this.categories = this.categories.replace('undefined', '');
-    this.http.post('http://192.168.1.14:8000/requests/submit_new_ad', JSON.stringify({title: this.title , description: this.description ,
+    this.http.post('https://parsbeacon.ir/requests/submit_new_ad', JSON.stringify({title: this.title , description: this.description ,
     shortdescription : this.shortdescription, timedelta : + this.timedelta ,
     oldcost: +this.oldcost,
     off: +this.off,

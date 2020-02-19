@@ -1,4 +1,4 @@
-<mat-card class="responsivecard" dir="rtl">
+<mat-card class="responsivecard" dir="rtl" xmlns="http://www.w3.org/1999/html">
   <mat-card-title class="titlecard" dir="rtl">
     اضافه کردن تبلیغ
   </mat-card-title>
@@ -117,6 +117,16 @@
       <mat-icon class="icon-font">close</mat-icon>
     </button>
   </mat-form-field>
+  <button class="button" mat-raised-button color="primary" (click)="find()">پیدا کردن روی نقشه </button>
+</mat-card>
+  <mgl-map class="mapcontainer"
+    [zoom]="[15]"
+    [center]="center"
+    [centerWithPanTo]="true"
+    [interactive]="true"
+    [apiKey]="apiKey"
+  ></mgl-map>
+<mat-card class="responsivecard" dir="rtl" xmlns="http://www.w3.org/1999/html">
   <mat-form-field class="fullwidth">
     <label>
       <input  matInput type="text" placeholder="قیمت را وارد کنید" [(ngModel)]="cost">
@@ -124,6 +134,7 @@
     <button mat-button *ngIf="cost" matSuffix mat-icon-button aria-label="Clear" (click)="cost  =''">
       <mat-icon class="icon-font">close</mat-icon>
     </button>
+    <mat-hint align="start">قیمت را به هزار تومان وارد کنید ( مثلا 10 برابر ده هزار تومان)</mat-hint>
   </mat-form-field>
   <mat-form-field class="fullwidth">
     <label>
@@ -135,7 +146,7 @@
   </mat-form-field>
   <mat-form-field class="fullwidth">
     <label>
-      <input matInput type="text" placeholder="لینک تصاویر را وارد کنید ( اولین تصویر ، تصویر اصلی خواهد بود) " [(ngModel)]="piclink">
+      <input matInput type="text" placeholder="لینک تصاویر را وارد کنید ( اولین تصویر ، تصویر اصلی خواهد بود  و پروتکل لینک حتما باید https باشد) " [(ngModel)]="piclink">
     </label>
     <button mat-button *ngIf="piclink" matSuffix mat-icon-button aria-label="Clear" (click)="cost  =''">
       <mat-icon class="icon-font">close</mat-icon>
@@ -167,7 +178,6 @@
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-
     <table>
       <td><mat-form-field class="fullwidth">
         <label>
@@ -191,3 +201,4 @@
 
   <button class="button" mat-raised-button color="primary" (click)="submit()">افزودن</button>
 </mat-card>
+

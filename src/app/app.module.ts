@@ -27,7 +27,7 @@ import {DialogComponent} from './dialog';
 import { FailedDiagramComponent } from './failed-diagram/failed-diagram.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-
+import { NgxMapboxGLModule } from 'mapir-angular-component';
 
 @NgModule({
   declarations: [
@@ -63,6 +63,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MDBBootstrapModule,
     MatChipsModule,
     MatAutocompleteModule,
+    NgxMapboxGLModule,
   ],
   entryComponents: [ LoadingComponent, DialogComponent ],
   providers: [
